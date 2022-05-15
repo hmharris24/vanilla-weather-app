@@ -18,7 +18,7 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes}`;
+  return `${day}, ${hours}:${minutes}`;
 }
 
 function displayTemperature(response) {
@@ -43,8 +43,19 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-let apiKey = "dc32ae2fc1cb2115d010e3e5c4d4cc72";
-let city = "New York";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=Imperial`;
+function search(city) {
+  let apiKey = "dc32ae2fc1cb2115d010e3e5c4d4cc72";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=Imperial`;
+  axios.get(apiUrl).then(displayTemperature);
+}
 
-axios.get(apiUrl).then(displayTemperature);
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+search("New York");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
