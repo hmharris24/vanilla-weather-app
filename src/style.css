@@ -1,4 +1,6 @@
 body {
+  background-image: url("../images/cloud-image.webp");
+  background-size: cover;
   font-family: arial, sans-serif;
 }
 
@@ -36,9 +38,10 @@ li:first-letter {
 }
 
 .weather-app {
-  padding: 20px;
-  border: 1px solid #dadde1;
+  background-color: #fff;
+  border: 1px solid #878787;
   border-radius: 5px;
+  padding: 20px;
 }
 
 .overview {
@@ -54,18 +57,18 @@ li:first-letter {
 .weather-temperature strong {
   color: #878787;
   font-size: 64px;
-  line-height: 1;
   font-weight: 400;
+  line-height: 1;
 }
 
 .weather-temperature .units {
-  position: relative;
   font-size: 16px;
+  position: relative;
   top: -34px;
 }
 
 a {
-  font-size: 16px;
+  font-size: 14px;
   text-decoration: none;
 }
 
@@ -95,4 +98,10 @@ a {
 
 .weather-forecast-temperatures {
   font-size: 13px;
+}
+
+small {
+  margin: 0 auto;
+  text-align: center;
+  color: #878787;
 }
